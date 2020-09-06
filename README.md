@@ -29,6 +29,11 @@ const io = socketio(server);
 
 io.on('connection',socket => {
 
+socket.on('connect', () => {
+  // either with send()
+  socket.send('someone join the chat');
+});
+
 // sending to the client
   socket.emit('hello', 'can you hear me?', 1, 2, 'abc');
 
